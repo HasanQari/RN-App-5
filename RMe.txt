@@ -1,0 +1,109 @@
+React Native App ..............
+**--- APP ---**
+
+
+
+
+---------- WHAT LEARN ---------
+
+
+
+------------ Notes ------------
+
+- 
+
+------------ HOW TO -----------
+
+TO 
+
+
+----------- EXAMPLE -----------
+
+#1
+
+
+----------- TEMPLET -----------
+
+#1 screen / component structure:
+   import React from 'react';
+   import { StyleSheet, View, Text } from 'react-native';
+
+   const @@@@ = props => {
+      return (
+         <View style={styles.screen} >
+               <Text>Categories Screen</Text>
+         </View>
+      )
+   }
+
+   const styles = StyleSheet.create({
+      screen: {
+         flex: 1,
+         justifyContent: 'center',
+         alignItems: 'center',
+      }
+   });
+
+   export default @@@@;
+
+
+#2 create manaual back button: (inside func of onPress attr)
+   props.navigation.goBack(); OR props.navigation.pop();
+
+
+#3 back to main screen with skip the tree:
+   onPress={() => {props.navigation.popToTop();}}
+
+
+#4 App Navigation file structure:
+   import { createStackNavigator } from 'react-navigation-stack';
+   import { createAppContainer } from 'react-navigation';
+   import {Platform} from 'react-native';
+
+   import ScreenA from '../screens/ScreenA';
+   import ScreenB from '../screens/ScreenB';
+   import ScreenC from '../screens/ScreenC';
+
+   import Colors from '../constants/Colors';
+
+   const AppNavigator = createStackNavigator({
+      sA: {
+         screen: ScreenA,
+         navigationOptions: {headerTitle: 'Title of Screen'}
+      },
+      sB: ScreenB,
+      sC: ScreenC,
+   }, {
+      defaultNavigationOptions: { 
+         headerStyle: {
+            backgroundColor: Platform.OS === 'android' ? Colors.primary : '',
+         },
+         headerTintColor: Platform.OS === 'android' ? Colors.white : Colors.black
+      } // this will apply on all screens
+   })
+
+   export default createAppContainer(AppNavigator);
+
+
+----------- COLORS -----------
+
+primary:'#0875FC',
+orange:'#fc9208',
+
+
+
+----------- INSTALL -----------
+
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-viewnpm install --save react-navigation
+npm install --save react-navigation-stack
+npm install --save react-navigation-header-buttons
+npm install @reduxjs/toolkit
+npm install redux
+npm install react-redux
+npm install redux-thunk
+install expo-file-system
+npm install expo-sqlite
+npm install expo-location
+npm install react-native-maps
+
+
